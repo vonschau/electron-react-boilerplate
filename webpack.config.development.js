@@ -24,18 +24,20 @@ export default validate(merge(baseConfig, {
   module: {
     loaders: [
       {
-        test: /\.global\.css$/,
+        test: /\.global\.sass$/,
         loaders: [
           'style-loader',
-          'css-loader?sourceMap'
+          'css-loader?sourceMap',
+          'sass-loader?sourceMap'
         ]
       },
 
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: /^((?!\.global).)*\.sass$/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'sass-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
         ]
       }
     ]
